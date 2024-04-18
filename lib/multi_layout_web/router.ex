@@ -18,6 +18,11 @@ defmodule MultiLayoutWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/app", PageController, :app
+    get "/admin", AdminController, :admin
+    live "/live", HomeLive
+    live "/live/app", AppLive
+    live "/live/admin", AdminLive
   end
 
   # Other scopes may use custom stacks.
