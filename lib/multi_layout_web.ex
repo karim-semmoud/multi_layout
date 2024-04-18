@@ -49,45 +49,47 @@ defmodule MultiLayoutWeb do
     end
   end
 
-  def controller_admin do
-    quote do
-      use Phoenix.Controller,
-        formats: [:html, :json],
-        layouts: [html: {MultiLayoutWeb.Layouts, :admin}]
+  # def controller_admin do
+  #   quote do
+  #     use Phoenix.Controller,
+  #       formats: [:html, :json],
+  #       layouts: [html: {MultiLayoutWeb.Layouts, :admin}]
 
-      import Plug.Conn
-      import MultiLayoutWeb.Gettext
+  #     import Plug.Conn
+  #     import MultiLayoutWeb.Gettext
 
-      unquote(verified_routes())
-    end
-  end
+  #     unquote(verified_routes())
+  #   end
+  # end
 
   def live_view do
     quote do
       use Phoenix.LiveView,
         layout: {MultiLayoutWeb.Layouts, :app}
 
-      unquote(html_helpers())
-    end
-  end
-
-  def live_view_no_layout do
-    quote do
-      use Phoenix.LiveView,
-        layout: false
+      # layout: false
 
       unquote(html_helpers())
     end
   end
 
-  def live_view_admin do
-    quote do
-      use Phoenix.LiveView,
-        layout: {MultiLayoutWeb.Layouts, :admin}
+  # def live_view_no_layout do
+  #   quote do
+  #     use Phoenix.LiveView,
+  #       layout: false
 
-      unquote(html_helpers())
-    end
-  end
+  #     unquote(html_helpers())
+  #   end
+  # end
+
+  # def live_view_admin do
+  #   quote do
+  #     use Phoenix.LiveView,
+  #       layout: {MultiLayoutWeb.Layouts, :admin}
+
+  #     unquote(html_helpers())
+  #   end
+  # end
 
   def live_component do
     quote do
